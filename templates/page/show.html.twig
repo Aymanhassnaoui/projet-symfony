@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div >
+ <img   src={{asset(produits.photo)}} alt="" >
+
+<p> {{produits.prix }} $/<span>par nuit <span> </p>
+</div>
+<div class = "show1" >
+<h1> {{produits.user.prenom}} </h1>
+<p > ariver : </p>
+<p class="depart1">depart : </p>
+
+<p >  {{produits.ariver | date('j/m/y') }} </p>
+<p class = "depart"> {{produits.depart | date('j/m/y') }} </p>
+</div>
+        
+
+   
+         
+          <a href="{{path('add_cart',{'id':produits.id})}}"><button class="favorite"
+        type="button">
+   reserver
+</button></a> 
+        
+
+{% endblock %}

@@ -1,0 +1,58 @@
+.ayman  {
+    margin: 20px;
+    text-align: center;
+    
+}
+
+.ayman img  {
+width: 320px ;
+margin: 13px;
+}
+.a{
+    position: relative;
+    right: -30px; 
+}
+ .b  { 
+    width: 150px;
+}
+
+.contact {
+    width: 50%;
+    margin: auto;
+}
+
+ .l .table #a {
+  text-align: center;
+}
+
+.chek {
+ text-align: center;
+}
+
+.show1{
+position: absolute;
+    /* display: flex; */
+    left: 900px;
+    top: 90px;}
+
+    .favorite{
+        position: absolute;
+        left: 1000px;
+        width: 120px;
+        border-radius: 110px;
+        background: green;
+        height: 30px;
+    }
+
+     .depart{
+        position: absolute;
+        top: 97.5px;
+        left: 200px;
+
+     }
+    .depart1 {
+        position: absolute;
+        left: 200px;
+        top: 55.5px
+    }
+    

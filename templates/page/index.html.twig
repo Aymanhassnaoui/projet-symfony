@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PageController!{% endblock %}
+
+{% block body %}
+<div class="chek">
+  <input type="radio" name="my-input" id="yes">
+  <label for="yes">cabane</label>
+
+  <input type="radio" name="my-input" id="no">
+  <label for="no">yourte</label>
+
+   <input type="radio" name="my-input" id="no">
+  <label for="no">maison</label>
+</div>
+
+
+<div class="ayman">
+{% for produit in produits %}
+
+<a href=" {{path('ap',{'id':produit.id})}}"> <img   src={{asset(produit.photo)}} </a>
+
+
+
+
+
+
+{% endfor %}
+</div>
+{% endblock %}

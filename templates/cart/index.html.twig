@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+
+
+    <div class ="l"> <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">produit</th>
+      <th id = "a"scope="col">prix</th>
+    
+    </tr>
+  </thead>
+  </div>
+  <tbody>
+  {% for produit in cart %}
+    <tr>
+      <th scope="row">1</th>
+      <td width = "120px"><img width="120px"  src="{{produit.produit.photo}}" alt="" ></td>
+      <td id="b" >{{produit.produit.prix}}</td>
+    </tr>
+   {% endfor %}
+   
+  
+</table>
+  <a href="/reservation"><button class="favorite"
+        type="button"> reserver</button></a> 
+         </tbody>
+
+{% endblock %}
