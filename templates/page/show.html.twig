@@ -3,10 +3,14 @@
 <div >
  <img   src={{asset(produits.photo)}} alt="" >
 
-<p> {{produits.prix }} $/<span>par nuit <span> </p>
+<p> {{produits.prix }} $ </p>
 </div>
 <div class = "show1" >
-<h1> {{produits.user.prenom}} </h1>
+<h1>  chez :  {{produits.user.prenom}} </h1>
+ <img  id = 'image'  src={{asset(produits.user.photoUser)}} alt="" >
+ <div class = "produit">
+ <p> {{produits.capacite}}m^2 {{produits.couchage}}nombre 
+ </div>
 <p > ariver : </p>
 <p class="depart1">depart : </p>
 
@@ -16,11 +20,12 @@
         
 
    
-         
-          <a href="{{path('add_cart',{'id':produits.id})}}"><button class="favorite"
+          <form action="/create-checkout-session.php" method="POST">
+          <a href="{{path('add_cart',{'id':produits.id})}}  " id="checkout-button"><button class="favorite"
         type="button">
    reserver
 </button></a> 
+</form>
         
 
 {% endblock %}

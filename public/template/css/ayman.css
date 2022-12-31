@@ -59,4 +59,13 @@ position: absolute;
     .prix{
         text-align: center;
     }
+
+    #image {
+        border-radius: 250px 250px 250px 250px;
+        width: 170px   
+    }
     
+    .produit {
+     width :200px 
+     
+    }

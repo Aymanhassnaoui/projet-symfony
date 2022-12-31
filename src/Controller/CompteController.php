@@ -46,10 +46,7 @@ class CompteController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
          $produit->setUser($this->getUser());
-            $produit= $form->getData();
-
-           $this->entityManager->persist($produit);
-           $this->entityManager->flush(); 
+         
 
           $brochureFile = $form->get('photo')->getData();
 
@@ -74,8 +71,11 @@ class CompteController extends AbstractController
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
                 $produit->setphoto($newFilename);
+          
             }
-           
+            $produit= $form->getData();
+                $this->entityManager->persist($produit);
+                $this->entityManager->flush();  
         
         }
         return $this->render('compte/anonce.html.twig', [

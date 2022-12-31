@@ -63,6 +63,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $produits;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photoUser;
+
     
 
     public function __construct()
@@ -240,6 +245,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $produit->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhotoUser(): ?string
+    {
+        return $this->photoUser;
+    }
+
+    public function setPhotoUser(?string $photoUser): self
+    {
+        $this->photoUser = $photoUser;
 
         return $this;
     }

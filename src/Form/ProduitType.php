@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
 class ProduitType extends AbstractType
 {
@@ -18,7 +18,7 @@ class ProduitType extends AbstractType
         $builder
             ->add('type')
             ->add('photo', filetype::class)
-            ->add('prix')
+            ->add('prix',MoneyType::class)
             ->add('capacite')
             ->add('couchage')
             ->add('ariver')
