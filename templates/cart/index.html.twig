@@ -6,6 +6,8 @@
 
 {% block body %}
 
+{{
+ dump(cart) }}
 
     <div class ="l"> <table class="table">
   <thead>
@@ -19,17 +21,18 @@
   </div>
   <tbody>
   {% for produit in cart %}
+  
     <tr>
-      <th scope="row">1</th>
-      <td width = "120px"><img width="120px"  src="{{produit.produit.photo}}" alt="" ></td>
-      <td class="prix" >{{produit.produit.prix}}</td>
+      <th scope="row">*</th>
+      <td width = "120px"><img width="120px"  src= {{ produit.produit.photo }} alt="" ></td>
+      <td class="prix" >{{ produit.produit.prix }}</td>
     </tr>
    {% endfor %}
    
   
 </table>
        
-         <form action="/stripe" method="POST">
+         <form action="/reservation" method="POST">
         <button type="submit" id="checkout-button">payer</button>
       </form>
     {% endblock %}

@@ -46,12 +46,25 @@ class Reservation
      */
     private $quantity;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $reference;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $total;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-   
+    public function __toString()
+    {
+        return $this->getNom();
+    }
 
     public function getUser(): ?user
     {
@@ -109,6 +122,30 @@ class Reservation
     public function setQuantity(int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getTotal(): ?float
+    {
+        return $this->total;
+    }
+
+    public function setTotal(float $total): self
+    {
+        $this->total = $total;
 
         return $this;
     }

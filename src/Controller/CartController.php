@@ -22,23 +22,26 @@ class CartController extends AbstractController
      */
     public function index( cart $cart): Response
     { 
-     
        
+      
+           
         return $this->render('cart/index.html.twig',
         [
             'cart'=>$cart->getfull()
-            
+          
         ]);
 
     }
      /**
      * @Route("/cart/add/{id}", name="add_cart")
      */
-    public function add( cart $cart ,$id): Response
+    public function add( cart $cart ,$id)
 
     {   
        $cart->add($id);
      
-        return $this->redirectToRoute('app_reservation');
+       return $this->redirectToRoute('app_cart');
     }
+
+    
 }

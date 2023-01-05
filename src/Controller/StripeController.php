@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\classe\cart;
 use App\Entity\Produits;
+use App\Entity\Reservation;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,12 +14,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 class StripeController extends AbstractController
 {
-    #[Route('/stripe', name: 'app_stripe')]
-    public function index(   cart $cart)
+    #[Route('/stripe/{reference}', name: 'app_stripe')]
+    public function index(  cart $cart , EntityManagerInterface $entityManager , $reference)
     {
         $products_for_stripe  = [];
         $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+    
 
+ 
         foreach ( $cart->getfull() as $Produits){
         
                 $products_for_stripe[] = [

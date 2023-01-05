@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CommandeController!{% endblock %}
+
+{% block body %}
+
+
+<h2> je  passe ma commande </h2>
+
+<div class="contact">
+  {{form(form)}}
+  </div>
+ {% for produit in cart %}
+  
+    <tr  text-align: "center">
+      <td   width = "120px"><img width="120px"  src= {{ produit.produit.photo }} alt="" ></td>
+   
+    </tr>
+   {% endfor %}
+<br>
+<a href= '/stripe/{reference}'> payer mes reservation </a>
+{% endblock %}

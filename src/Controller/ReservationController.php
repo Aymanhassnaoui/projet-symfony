@@ -31,36 +31,36 @@ class ReservationController extends AbstractController
       
         $contact= new Reservation();
         $form = $this->createForm(ReservationType::class, $contact,);
+        
         $form->handleRequest($request);
-       
+        $date = new \DateTime();
+        $reference= $date->format(format:'dmy').'-'.uniqid();
+        $contact->setReference($reference);
         if ($form->isSubmitted() && $form->isValid()) {
-    
+       $date = new \DateTime();
             foreach ( $cart->getfull() as $Produits)
+
                 $contact->setUser($this->getUser());
+                $reference= $date->format(format:'dmy').'-'.uniqid();
+                
                 $contact->setProduit($Produits['produit']);
                 $contact->setquantity($Produits['quantity']);
                 $contact->setPrix($Produits['produit']->getprix());
+                $contact->setTotal($Produits['produit']->getprix()*$Produits['quantity']);
+               
+                $this->entityManager->persist($contact);
+                $this->entityManager->flush();
+                return $this->redirectToRoute('app_commande');
+      
               
-                return $this->redirectToRoute('app_cart');
-          
             }
-            $this->entityManager->persist($contact);
-       $this->entityManager->flush();
-  
-     
-
-
-
-
-
-
-
+          
   
       
         return $this->render('reservation/reservation.html.twig', [
             'form'=>$form->createView(),
             'cart'=>$cart->getfull(),
-             
+             'reference'=> $contact->getReference()
         ]);
     }
 
