@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MesreservationController!{% endblock %}
+
+{% block body %}
+<h2>mes reservation </h2>
+{% for reservation in app.user.reservations %}
+   {{dump(reservation)}}
+
+    <tr >
+     <td  class"reservation" width = "120px"><img width="120px"  src= {{ reservation.produit.photo }} alt="" ></td>
+    <td class="mes" >{{ reservation.produit.prix }}</td>
+    </tr>
+ {% endfor %}
+
+{% endblock %}
